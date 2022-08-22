@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Gittest",
-            "content": "title &lt;h1/&gt; “title” .",
+            "content": "title &lt;h1/&gt; . body &lt;body/&gt; .",
             "url": "https://fastpages.fast.ai/2022/08/22/gittest.html",
             "relUrl": "/2022/08/22/gittest.html",
             "date": " • Aug 22, 2022"
