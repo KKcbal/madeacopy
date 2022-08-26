@@ -1,1 +1,1 @@
-Sitemap: https://kkcbal.github.io/madeacopy.github.io/sitemap.xml
+Sitemap: https://kkcbal.github.io/madeacopy/sitemap.xml
