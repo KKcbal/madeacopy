@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      6 min read
     
 </span></p>
 
@@ -419,9 +419,25 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;filler&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">==</span> <span class="mi">12</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>filler
+False
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -440,50 +456,85 @@ window.onload = wrap_img;
 <span class="n">sword</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">hammer</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">num3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="k">def</span> <span class="nf">equip</span><span class="p">(</span><span class="n">weapon</span><span class="p">):</span>
+<span class="n">healthOp</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#buff</span>
+<span class="n">health</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#buff</span>
+<span class="n">equipped</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">attackList</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">#use a list to define different enemies</span>
+    <span class="s2">&quot;jab&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;stab&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;crab&quot;</span><span class="p">:</span> <span class="mi">5</span> <span class="c1">#probably change method of attack layout</span>
+<span class="p">}</span>
+<span class="k">def</span> <span class="nf">equip</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">equipped</span>
-    <span class="n">equipped</span> <span class="o">=</span> <span class="n">weapon</span>
-<span class="k">def</span> <span class="nf">durability</span><span class="p">():</span>
+    <span class="n">equipped</span> <span class="o">=</span> <span class="n">output</span>
+<span class="k">def</span> <span class="nf">durLow</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">equipped</span>
     <span class="n">dur</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">equipped</span> <span class="o">-=</span> <span class="n">num3</span><span class="p">[</span><span class="n">dur</span><span class="p">]</span>
-<span class="k">def</span> <span class="nf">durCheck</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">equipped</span> <span class="o">==</span> <span class="n">sword</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your weapon&#39;s durability is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">equipped</span><span class="p">))</span>
-        <span class="k">pass</span>
-    <span class="k">if</span> <span class="n">equipped</span> <span class="o">==</span> <span class="n">hammer</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your weapon&#39;s durability is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">equipped</span><span class="p">))</span>
-        <span class="k">pass</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must have a weapon equipped to check its durability&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">choose</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">choice</span>
     <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What would you like to do?&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;equip&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What would you like to equip?&quot;</span><span class="p">)</span>
+        <span class="n">chooseEquip</span><span class="p">()</span>
+        <span class="n">choose</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;attack&quot;</span><span class="p">:</span> <span class="c1">#add attack choices, do pp thing that pokemon does</span>
+        <span class="k">if</span> <span class="n">equipped</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">attack</span><span class="p">()</span>
+            <span class="n">durLow</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must have a weapon to fight&quot;</span><span class="p">)</span>
+            <span class="n">choose</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;defend&quot;</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">health</span>
+        <span class="n">duck</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;With hands or weapon?&quot;</span><span class="p">)</span>
+        <span class="n">dip</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">duck</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;weapon&quot;</span><span class="p">:</span>
+            <span class="n">dip</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">durLow</span><span class="p">()</span> <span class="c1">#nerf durability loss for defend</span>
+        <span class="n">health</span> <span class="o">-=</span> <span class="n">dip</span>
+    <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;check&quot;</span><span class="p">:</span>
+        <span class="n">statCheck</span><span class="p">()</span>
+        <span class="n">choose</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can not do &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, please do something else&quot;</span><span class="p">)</span>
+        <span class="n">choose</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">chooseEquip</span><span class="p">():</span>
     <span class="n">don</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Choose a weapon&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">don</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;brick&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The brick is too heavy for a peasant like you&quot;</span><span class="p">)</span>
-        <span class="n">chooseEquip</span><span class="p">()</span>
-        <span class="k">pass</span>
-    <span class="k">if</span> <span class="n">don</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;sword&quot;</span><span class="p">:</span>
-        <span class="n">equip</span><span class="p">(</span><span class="n">sword</span><span class="p">)</span>
-        <span class="k">pass</span>
     <span class="k">if</span> <span class="n">don</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;hammer&quot;</span><span class="p">:</span>
         <span class="n">equip</span><span class="p">(</span><span class="n">hammer</span><span class="p">)</span>
-        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">don</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;sword&quot;</span><span class="p">:</span>
+        <span class="n">equip</span><span class="p">(</span><span class="n">sword</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You do not have &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">don</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, please choose a weapon&quot;</span><span class="p">)</span>
         <span class="n">chooseEquip</span><span class="p">()</span>
-        <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">attackOp</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">health</span>
+    <span class="n">health</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">attack</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">healthOp</span>
+    <span class="n">healthOp</span> <span class="o">-=</span> <span class="mi">2</span>
+<span class="k">def</span> <span class="nf">statCheck</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your health: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">health</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your opponent&#39;s health: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">healthOp</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">equipped</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your weapon&#39;s durablility: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">equipped</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must have a weapon equipped to check its durability&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is an enemy in front of you. You have a sword and hammer. You must equip one to fight&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can fight, check your weapon&#39;s durability, and defend. To equip a weapon you must type &#39;equip&#39;&quot;</span><span class="p">)</span>
-<span class="n">choice1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What would you like to do?&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">choice1</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;equip&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What would you like to equip?&quot;</span><span class="p">)</span>
-    <span class="n">chooseEquip</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">equipped</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can fight, check battle statistics, and defend. To equip a weapon you must type &#39;equip&#39;&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">healthOp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">choose</span><span class="p">()</span>
+    <span class="n">attackOp</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">health</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="k">if</span> <span class="n">health</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You died&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">healthOp</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You win&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End stats:&quot;</span><span class="p">)</span>
+<span class="n">statCheck</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -497,14 +548,107 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>There is an enemy in front of you. You have a sword and hammer. You must equip one to fight
-You can fight, check your weapon&#39;s durability, and defend. To equip a weapon you must type &#39;equip&#39;
+You can fight, check battle statistics, and defend. To equip a weapon you must type &#39;equip&#39;
 What would you like to equip?
-The brick is too heavy for a peasant like you
-You do not have sword, please choose a weapon
-You do not have sword, please choose a weapon
-You do not have brick, please choose a weapon
-30
+You do not have monkey, please choose a weapon
+You do not have monkey, please choose a weapon
+Your health: 10
+Your opponent&#39;s health: 10
+Your weapon&#39;s durablility: 20
+Your health: 10
+Your opponent&#39;s health: 10
+Your weapon&#39;s durablility: 20
+Your health: 9
+Your opponent&#39;s health: 8
+Your weapon&#39;s durablility: 17
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
+You can not do , please do something else
 </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb Cell 8</span> in <span class="ansi-cyan-fg">&lt;cell line: 74&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=72&#39;&gt;73&lt;/a&gt;</span> print(&#34;You can fight, check battle statistics, and defend. To equip a weapon you must type &#39;equip&#39;&#34;)
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=73&#39;&gt;74&lt;/a&gt;</span> while healthOp &gt; 0:
+<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=74&#39;&gt;75&lt;/a&gt;</span>     choose()
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=75&#39;&gt;76&lt;/a&gt;</span>     attackOp()
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=76&#39;&gt;77&lt;/a&gt;</span>     if health &lt;= 0:
+
+<span class="ansi-green-intense-fg ansi-bold">/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb Cell 8</span> in <span class="ansi-cyan-fg">choose</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=42&#39;&gt;43&lt;/a&gt;</span> elif choice.lower() == &#34;check&#34;:
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=43&#39;&gt;44&lt;/a&gt;</span>     statCheck()
+<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=44&#39;&gt;45&lt;/a&gt;</span>     choose()
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> else:
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=46&#39;&gt;47&lt;/a&gt;</span>     print(&#34;You can not do &#34;+str(choice)+&#34;, please do something else&#34;)
+
+<span class="ansi-green-intense-fg ansi-bold">/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb Cell 8</span> in <span class="ansi-cyan-fg">choose</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> else:
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=46&#39;&gt;47&lt;/a&gt;</span>     print(&#34;You can not do &#34;+str(choice)+&#34;, please do something else&#34;)
+<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=47&#39;&gt;48&lt;/a&gt;</span>     choose()
+
+<span class="ansi-green-intense-fg ansi-bold">/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb Cell 8</span> in <span class="ansi-cyan-fg">choose</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> else:
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=46&#39;&gt;47&lt;/a&gt;</span>     print(&#34;You can not do &#34;+str(choice)+&#34;, please do something else&#34;)
+<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=47&#39;&gt;48&lt;/a&gt;</span>     choose()
+
+    <span class="ansi-red-fg">[... skipping similar frames: choose at line 48 (16 times)]</span>
+
+<span class="ansi-green-intense-fg ansi-bold">/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb Cell 8</span> in <span class="ansi-cyan-fg">choose</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=45&#39;&gt;46&lt;/a&gt;</span> else:
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=46&#39;&gt;47&lt;/a&gt;</span>     print(&#34;You can not do &#34;+str(choice)+&#34;, please do something else&#34;)
+<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=47&#39;&gt;48&lt;/a&gt;</span>     choose()
+
+<span class="ansi-green-intense-fg ansi-bold">/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb Cell 8</span> in <span class="ansi-cyan-fg">choose</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=20&#39;&gt;21&lt;/a&gt;</span> def choose():
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=21&#39;&gt;22&lt;/a&gt;</span>     global choice
+<span class="ansi-green-fg">---&gt; &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=22&#39;&gt;23&lt;/a&gt;</span>     choice = input(&#34;What would you like to do?&#34;)
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=23&#39;&gt;24&lt;/a&gt;</span>     if choice.lower() == &#34;equip&#34;:
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href=&#39;vscode-notebook-cell://wsl%2Bubuntu/home/kkcbal/vscode/madeacopy/_notebooks/2022-09-23-rpg.ipynb#X10sdnNjb2RlLXJlbW90ZQ%3D%3D?line=24&#39;&gt;25&lt;/a&gt;</span>         print(&#34;What would you like to equip?&#34;)
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/ipykernel/kernelbase.py:1075</span>, in <span class="ansi-cyan-fg">Kernel.raw_input</span><span class="ansi-blue-fg">(self, prompt)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1071</span> if not self._allow_stdin:
+<span class="ansi-green-intense-fg ansi-bold">   1072</span>     raise StdinNotImplementedError(
+<span class="ansi-green-intense-fg ansi-bold">   1073</span>         &#34;raw_input was called, but this frontend does not support input requests.&#34;
+<span class="ansi-green-intense-fg ansi-bold">   1074</span>     )
+<span class="ansi-green-fg">-&gt; 1075</span> return self._input_request(
+<span class="ansi-green-intense-fg ansi-bold">   1076</span>     str(prompt),
+<span class="ansi-green-intense-fg ansi-bold">   1077</span>     self._parent_ident[&#34;shell&#34;],
+<span class="ansi-green-intense-fg ansi-bold">   1078</span>     self.get_parent(&#34;shell&#34;),
+<span class="ansi-green-intense-fg ansi-bold">   1079</span>     password=False,
+<span class="ansi-green-intense-fg ansi-bold">   1080</span> )
+
+File <span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/ipykernel/kernelbase.py:1120</span>, in <span class="ansi-cyan-fg">Kernel._input_request</span><span class="ansi-blue-fg">(self, prompt, ident, parent, password)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1117</span>             break
+<span class="ansi-green-intense-fg ansi-bold">   1118</span> except KeyboardInterrupt:
+<span class="ansi-green-intense-fg ansi-bold">   1119</span>     # re-raise KeyboardInterrupt, to truncate traceback
+<span class="ansi-green-fg">-&gt; 1120</span>     raise KeyboardInterrupt(&#34;Interrupted by user&#34;) from None
+<span class="ansi-green-intense-fg ansi-bold">   1121</span> except Exception:
+<span class="ansi-green-intense-fg ansi-bold">   1122</span>     self.log.warning(&#34;Invalid Message:&#34;, exc_info=True)
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: Interrupted by user</pre>
 </div>
 </div>
 
