@@ -4,8 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+I love asher, hes so hot. asher is so cool 
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+![XXXASHER](/home/kkcbal/vscode/madeacopy/images/asher.jpg)
