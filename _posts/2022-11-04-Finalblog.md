@@ -1,3 +1,11 @@
+<style>
+    p {
+        text-align: left;
+        padding; 8px;
+    }
+</style>\
+
+
 # Final Blog
 > A blog for the Night at the Museum findings and missed test questions on the final
 
