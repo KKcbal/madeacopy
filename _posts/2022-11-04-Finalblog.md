@@ -2,12 +2,11 @@
 title: Final Blog
 layout: default
 description: My final blog. This include my findings at Night at the Museum, ideas for future projects, and my incorrect questions on the Final
+toc: true
 ---
 
 # Final Blog
 > A blog for the Night at the Museum findings and missed test questions on the final
-
-- toc: true
 
 ## Night at the Museum
 
