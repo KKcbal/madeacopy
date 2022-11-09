@@ -1,6 +1,6 @@
 ---
 title: Final Blog
-layout: default
+layout: post
 description: My final blog. This include my findings at Night at the Museum, ideas for future projects, and my incorrect questions on the Final
 toc: true
 ---
