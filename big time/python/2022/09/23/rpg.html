@@ -496,6 +496,9 @@ False
     <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;check&quot;</span><span class="p">:</span>
         <span class="n">statCheck</span><span class="p">()</span>
         <span class="n">choose</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;break&quot;</span><span class="p">:</span>
+        <span class="k">global</span> <span class="n">healthOp</span>
+        <span class="n">healthOp</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can not do &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, please do something else&quot;</span><span class="p">)</span>
         <span class="n">choose</span><span class="p">()</span>
