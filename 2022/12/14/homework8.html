@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -251,31 +251,31 @@ Fully programmed solution will improve your grade, at a minimum show that you tr
         <span class="s1">&#39;Westview&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
         <span class="s1">&#39;MtCarmel&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
         <span class="s1">&#39;Poway&#39;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span>
-        <span class="s1">&#39;RanchoBernrdo&#39;</span><span class="p">:</span><span class="mi">50</span>
+        <span class="s1">&#39;RanchoBernardo&#39;</span><span class="p">:</span><span class="mi">50</span>
     <span class="p">},</span>
     <span class="s1">&#39;Westview&#39;</span><span class="p">:{</span>
-        <span class="s1">&#39;Del Norte&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
+        <span class="s1">&#39;DelNorte&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
         <span class="s1">&#39;MtCarmel&#39;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span>
         <span class="s1">&#39;Poway&#39;</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span>
-        <span class="s1">&#39;RanchoBernrdo&#39;</span><span class="p">:</span> <span class="mi">45</span>
+        <span class="s1">&#39;RanchoBernardo&#39;</span><span class="p">:</span> <span class="mi">45</span>
     <span class="p">},</span>
     <span class="s1">&#39;MtCarmel&#39;</span><span class="p">:{</span>
         <span class="s1">&#39;Westview&#39;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span>
-        <span class="s1">&#39;Del Norte&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
+        <span class="s1">&#39;DelNorte&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
         <span class="s1">&#39;Poway&#39;</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span>
-        <span class="s1">&#39;RanchoBernrdo&#39;</span><span class="p">:</span><span class="mi">30</span>
+        <span class="s1">&#39;RanchoBernardo&#39;</span><span class="p">:</span><span class="mi">30</span>
     <span class="p">},</span>
     <span class="s1">&#39;Poway&#39;</span><span class="p">:{</span>
         <span class="s1">&#39;Westview&#39;</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span>
         <span class="s1">&#39;MtCarmel&#39;</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span>
-        <span class="s1">&#39;Del Norte&#39;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span>
-        <span class="s1">&#39;RanchoBernrdo&#39;</span><span class="p">:</span><span class="mi">15</span>
+        <span class="s1">&#39;DelNorte&#39;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span>
+        <span class="s1">&#39;RanchoBernardo&#39;</span><span class="p">:</span><span class="mi">15</span>
     <span class="p">},</span>
     <span class="s1">&#39;RanchoBernardo&#39;</span><span class="p">:{</span>
         <span class="s1">&#39;Westview&#39;</span><span class="p">:</span><span class="mi">45</span><span class="p">,</span>
         <span class="s1">&#39;MtCarmel&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span>
         <span class="s1">&#39;Poway&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
-        <span class="s1">&#39;Del Norte&#39;</span><span class="p">:</span><span class="mi">50</span>
+        <span class="s1">&#39;DelNorte&#39;</span><span class="p">:</span><span class="mi">50</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -294,23 +294,85 @@ Fully programmed solution will improve your grade, at a minimum show that you tr
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fastestroute</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">drivetime</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">order</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c1">#CODE,CODE,CODE</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">drivetime</span><span class="p">,</span><span class="n">order</span><span class="p">)</span>
-
-<span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;DelNorte&#39;</span>
-<span class="c1"># &#39;dataset&#39; is the name of the nested key value pair</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">900</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">bruh</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># perm</span>
+<span class="n">help</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># temp</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;DelNorte&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">r</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ui</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">oh</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">global</span> <span class="n">t</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">mu</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="n">oh</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">+=</span> <span class="n">c</span>
+            <span class="k">return</span> <span class="n">n</span>
+        <span class="n">m</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">listaddomgihatethissomuch</span><span class="p">():</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">global</span> <span class="n">help</span>
+    <span class="k">global</span> <span class="n">bruh</span>
+    <span class="n">bruh</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">help</span><span class="p">):</span>
+        <span class="n">bruh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">help</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">n</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">s</span>
+    <span class="k">global</span> <span class="n">t</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">ui</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;DelNorte&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">())</span>
+    <span class="n">help</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DelNorte&quot;</span><span class="p">)</span>
+    <span class="n">help</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">ui</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">r</span><span class="p">())</span>
+    <span class="n">help</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">ui</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">r</span><span class="p">())</span>
+    <span class="n">help</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">ui</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">r</span><span class="p">())</span>
+    <span class="n">help</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="n">listaddomgihatethissomuch</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">help</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">adding</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">adding</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">n</span><span class="p">()</span>
+    <span class="n">adding</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bruh</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;Westview&#39;: 15, &#39;MtCarmel&#39;: 20, &#39;Poway&#39;: 35, &#39;RanchoBernardo&#39;: 50}
+80
+[&#39;DelNorte&#39;, &#39;Westview&#39;, &#39;DelNorte&#39;, &#39;Poway&#39;, &#39;RanchoBernardo&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>oh my god i just looked at the requirements and there's no way im doing that right now. right now being 7:42 pm on thursday. I think I could definitely do that but I spent so much time doing this that I don't want to. there wasn't really anything too hard about this. the only thing slowing me was my self. I kept getting off track and couldn't think several times while trying to figure out what i was doing. I could have done this pretty quickly if I was normal and had an attention span longer than a goldfish. The code isnt too hard to understand. there's two lists and two variables. one pair is temporary and the other pair is the final pair. the temporary pair resets after each loop. if the temporary variable (the distance) is less than the final variable, then the final list and variable change to the temporary variable and list's values. The order of schools is randomized. It doesn't check for duplicates and doesn't end on del norte. it does, however, start on del norte.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Grading:">Grading:<a class="anchor-link" href="#Grading:"> </a></h3><table>
