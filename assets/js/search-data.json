@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Collegeboardsubmission",
-            "content": "Submission 1 . Category My score College Board Score Comments . Program Purpose and Function | 0 | _ | The purpose is the functionality of the program | . Data Abstraction | 1 | _ | A list is shown and it is important to the function of the program | . Managing Complexity | 0 | _ | The reasoning for the code does not give a good case for how this list makes the code less complex. | . Procedural Abstraction | 1 | _ . _ . . Algorithm Implementation | 0 | _ | _ | . Testing | 0 | .",
+            "content": "Submission 1 . Category My score College Board Score Comments . Program Purpose and Function | 0 | 0 | The purpose is the functionality of the program | . Data Abstraction | 1 | 1 | A list is shown and it is important to the function of the program | . Managing Complexity | 0 | 0 | The reasoning for the code does not give a good case for how this list makes the code less complex. | . Procedural Abstraction | 1 | 1 | _ | . Algorithm Implementation | 0 | 1 | _ | . Testing | 0 | 1 | _ | .",
             "url": "https://kkcbal.github.io/madeacopy/2023/01/04/collegeboardsubmission.html",
             "relUrl": "/2023/01/04/collegeboardsubmission.html",
             "date": " • Jan 4, 2023"
