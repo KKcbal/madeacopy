@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <title>Not Bubsy 3D</title>
+<style>
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+  }
+
+  .flex-container > div {
+    background-color: black;
+    font-family: 'Courier New';
+    color: rgb(6, 240, 6);
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    align-items: flex-end;
+  }
+  .terminalbox {
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .terminalbox > p {
+    font-family: 'Courier New';
+    color: rgb(6, 240, 6);
+    text-align: left;
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    overflow: hidden;
+  }
+  .terminalbox > div {
+    font-family: 'Courier New';
+    color: rgb(6, 240, 6);
+    text-align: left;
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    overflow: hidden;
+  }
+
+  .flex-container2 {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .flex-container2 > input {
+    background-color: black;
+    font-family: 'Courier New';
+    color: rgb(6, 240, 6);
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+  .flex-container2 > button {
+    background-color: black;
+    font-family: 'Courier New';
+    color: rgb(6, 240, 6);
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+</style>
+</head>
+<body>
+    <p id="no"></p>
+
+  <div class="flex-container">
+    <div style="flex-grow: 1;flex-shrink: 0;background-color: White;"></div>
+    <div id="emptu" class="terminalbox" style="flex-grow: 8">
+        <p id="terminal">THIS IS THE TERMINAL</p>
+        <div style="width: 1px;"></div>
+    </div>
+    <div style="flex-grow: 1;flex-shrink: 0;background-color: White;"></div>  
+  </div>
+
+  <div class="flex-container2">
+    <input id="textinput" contentEditable="true" style="flex-grow: 0;"></input>
+    <button id="enter" onclick="enter">ENTER</button>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    let doc = document
+    let terminallimit = "13 lines"
+    let thisbooleanwillonlybeusedoncesoicanmakeitreallylong = false
+    let booleanreplace = false
+    let phealth = 20
+    
+    function whileloop() {
+      while (booleanreplace == false) {}
+      let booleanreplace = false
+    }
+    function terminaltext() {
+      return document.getElementById("terminal").innerHTML
+    }
+    function attack() {
+        phealth = phealth - 1;
+    }
+    function writeterm(inputtext) {
+      doc.getElementById("terminal").innerHTML = terminaltext() + "<br>" + inputtext
+    }
+    function grabinput() {
+      let userchoice = doc.getElementById("textinput").value;
+      return userchoice
+    }
+    function enter() {
+      let booleanreplace= true
+    }
+    function playerturn() {
+      writeterm("player turn")
+      whileloop()
+      if (grabinput() == "attack") {
+        attack()
+      } else if (grabinput() == "penis") {
+        writeterm("hehe, penis")
+      } else {
+        let baddabaddabadda = "You can not do " + grabinput()
+        writeterm(baddabaddabadda)
+      }
+    }
+    
+    while (phealth > 0) {
+      playerturn()
+      if (ophealth <= 0) break;
+      phealth--
+    }
+  </script>
+
+  <script>
+    $(document).ready(function(){
+        $("#abutton").click(function(){
+            $("#terminal").append("<br>NIGHTMARE");
+        });
+
+        $("#bbutton").click(function(){
+            $("#no").append(phealth);
+        });
+    });
+    $(document).ready(function(){
+        $("#xbutton").click(function(){
+            $("#terminal").empty();
+        });
+    });
+  </script>
+</body>
+</html>
