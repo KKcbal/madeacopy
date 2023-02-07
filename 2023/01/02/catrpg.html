@@ -85,18 +85,21 @@
   </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script>
-    let doc = document
-    let terminallimit = "13 lines"
-    let thisbooleanwillonlybeusedoncesoicanmakeitreallylong = false
-    let booleanreplace = false
-    let phealth = 20
+    let doc = document;
+    let terminallimit = "13 lines";
+    let thisbooleanwillonlybeusedoncesoicanmakeitreallylong = false;
+    var timtohy = "monday";
+    let phealth = 20;
     
     function whileloop() {
-      while (booleanreplace == false) {}
-      let booleanreplace = false
+      var timtohy = "monday"
+      while (timtohy == "monday") {
+        setTimeout(filler, 5000)
+      }
+      var timtohy = "monday"
     }
+    function filler() {}
     function terminaltext() {
       return document.getElementById("terminal").innerHTML
     }
@@ -111,7 +114,7 @@
       return userchoice
     }
     function enter() {
-      let booleanreplace= true
+      var timtohy= "tuesday"
     }
     function playerturn() {
       writeterm("Add a play button to time the game. write an if statement in the script without any functions, just a sole if statement. This can be used to start the game and possibly be used to take any and all inputs.")
@@ -131,23 +134,6 @@
       if (ophealth <= 0) break;
       phealth--
     }
-  </script>
-
-  <script>
-    $(document).ready(function(){
-        $("#abutton").click(function(){
-            $("#terminal").append("<br>NIGHTMARE");
-        });
-
-        $("#bbutton").click(function(){
-            $("#no").append(phealth);
-        });
-    });
-    $(document).ready(function(){
-        $("#xbutton").click(function(){
-            $("#terminal").empty();
-        });
-    });
   </script>
 </body>
 </html>
