@@ -102,6 +102,8 @@
     let phealth = 3;
     let ophealth = 3;
     let time = 0;
+    let points = 0;
+    const party = [0, 0, 0, 0]
     let inpbox = document.getElementById("textinput");
     let uinp = document.getElementById("textinput").value;
 
@@ -132,7 +134,9 @@
         gamestate0()
       } else if (gamestate == "1") {
         turn()
-      }
+      } else if (gamestate == "-1") {
+        win1()
+      } 
     }
     function gamestate0() {
       if (uinp == "PLAY") {
@@ -155,10 +159,23 @@
         writeterm("OPPONENT HEALTH: " + ophealth)
       } else if (uinp = "TIME") {
         writeterm(time + " SECONDS")
+      } else if (uinp = "WIN") {
+        gamestate = "-1"
       }
     }
     function turn() {
       playerturn()
+    }
+    function win1() {
+      let partywincount = 0
+      writeterm("CONGRATULATIONS, YOU WON!")
+      writeterm("YOUR TIME: " + time)
+      writeterm("YOUR HEALTH: " + health)
+      writeterm("YOUR POINTS: " + points)
+      if (party[0] == 1) {
+        partywincount += 1
+      }
+      if (party[1] == 1) {}
     }
   </script>
 </body>
