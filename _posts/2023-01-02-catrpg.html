@@ -71,11 +71,30 @@
 
   <div class="flex-container2">
     <div style="flex-grow: 1;flex-shrink: 0;background-color: White;"></div>
-    <input id="textinput" contentEditable="true" style="flex-grow: 4;"></input>
+    <input class="uc-text-smooth" type="text" id="textinput" style="flex-grow: 4;"></input>
     <div style="flex-grow: 1;flex-shrink: 0;background-color: White;"></div>
   </div>
 
+  <script>
+  const forceKeyPressUppercase = (e) => {
+    let el = e.target;
+    let charInput = e.keyCode;
+    if((charInput >= 97) && (charInput <= 122)) { // lowercase
+      if(!e.ctrlKey && !e.metaKey && !e.altKey) { // no modifier key
+        let newChar = charInput - 32;
+        let start = el.selectionStart;
+        let end = el.selectionEnd;
+        el.value = el.value.substring(0, start) + String.fromCharCode(newChar) + el.value.substring(end);
+        el.setSelectionRange(start+1, start+1);
+        e.preventDefault();
+      }
+    }
+  };
 
+  document.querySelectorAll(".uc-text-smooth").forEach(function(current) {
+    current.addEventListener("keypress", forceKeyPressUppercase);
+  });
+  </script>
   <script>
     let doc = document;
     let terminallimit = "13 lines";
