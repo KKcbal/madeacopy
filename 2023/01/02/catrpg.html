@@ -135,7 +135,7 @@
       }
     }
     function gamestate0() {
-      if (uinp == "play") {
+      if (uinp == "PLAY") {
         writeterm("THE GAME HAS BEGUN")
         setInterval(timeincrease, 1000)
         gamestate = "1"
@@ -144,16 +144,16 @@
       }
     }
     function playerturn(){
-      if (uinp == "attack") {
+      if (uinp == "ATTACK") {
         attack(ophealth)
-      } else if (uinp == "persona") {
+      } else if (uinp == "PERSONA") {
         writeterm("YOU CAN'T CHANGE PERSONAS")
-      } else if (uinp == "penis") {
+      } else if (uinp == "PENIS") {
         writeterm("haha penis")
-      } else if (uinp == "check") {
+      } else if (uinp == "CHECK") {
         writeterm("PLAYER HEALTH: " + phealth)
         writeterm("OPPONENT HEALTH: " + ophealth)
-      } else if (uinp = "time") {
+      } else if (uinp = "TIME") {
         writeterm(time + " SECONDS")
       }
     }
