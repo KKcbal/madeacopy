@@ -56,6 +56,46 @@
     padding: 20px;
     font-size: 30px;
   }
+  .popup{
+    width: 400px;
+    background: #cfcfcf;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.3s, top 0.3s;
+  }
+  .open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-23%) scale(1);
+  }
+  .popup img{
+    width: 100px;
+    margin-top: -40px;
+  }
+  .popup h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin: 10px 0 10px;
+  }
+  .popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #ff941c;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
 </style>
 </head>
 <body>
@@ -75,6 +115,16 @@
     <div style="flex-grow: 1;flex-shrink: 0;background-color: White;"></div>
   </div>
 
+  <div class="popup" id="signin">penis</div>
+
+  <script>
+    function openPopup(){
+      document.getElementById("signin").classList.add("open-popup");
+    }
+    function closePopup(){
+      document.getElementById("signin").classList.remove("open-popup");
+    }
+  </script>
   <script>
   const forceKeyPressUppercase = (e) => {
     let el = e.target;
@@ -157,16 +207,18 @@
       }
     }
     function gamestate1() {
-      if (uinp = "RECRUIT") {
+      console.log(uinp)
+      if (uinp == "RECRUIT") {
         console.log(uinp)
         writeterm("RECRUIT")
         gamestate = "3";
-      } else if (uinp = "FIND ENEMY") {
+      } else if (uinp == "FIND ENEMY") {
         writeterm("FIND ENEMY");
-      } else if (uinp = "FIGHT BOSS") {
+      } else if (uinp == "FIGHT BOSS") {
         writeterm("FIGHT BOSS");
       } else if (uinp == "GARFIELD") {
-        garfget();
+        garfield();
+        gamestate = "2";
       } else if (uinp == "MORGANA") {
         mona();
       } else if (uinp == "DALI") {
@@ -177,11 +229,17 @@
         mrkitty();
       } else if (uinp == "WIN") {
         gamestate = "-1";
+        win();
+      } else if (uinp == "POP") {
+        openPopup()
+      } else if (uinp == "UNPOP") {
+        closePopup()
       }
     }
     function recruit() {
       if (uinp == "GARFIELD") {
-        garfget();
+        garfield();
+        gamestate = "2";
       } else if (uinp == "MORGANA") {
         mona();
       } else if (uinp == "DALI") {
@@ -212,9 +270,9 @@
       } else if (uinp == "CHECK") {
         writeterm("PLAYER HEALTH: " + phealth);
         writeterm("OPPONENT HEALTH: " + ophealth);
-      } else if (uinp = "WIN") {
+      } else if (uinp == "WIN") {
         gamestate = "-1";
-      } else if (uinp = "TIME") {
+      } else if (uinp == "TIME") {
         writeterm("TIME: " + time);
       } else {}
     }
@@ -274,7 +332,7 @@
       } else {points += 10}
       writeterm("CONGRATULATIONS, YOU WON!");
       writeterm("YOUR TIME: " + time);
-      writeterm("YOUR HEALTH: " + health);
+      writeterm("YOUR HEALTH: " + phealth);
       writeterm("YOUR POINTS: " + points);
       writeterm("YOU HAVE " + partywincount + " PARTY MEMBERS OUT OF 4");
     }
