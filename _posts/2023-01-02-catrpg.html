@@ -150,7 +150,6 @@
     let time = 0;
     let points = 0;
     const party = [0, 0, 0, 0, 1];
-    const partyhp = [garfhealth, dalihealth, kithealth, monahealth, phealth]
     let encountercountdown = 2;
     let levelcount = 0;
     let inpbox = document.getElementById("textinput");
@@ -162,6 +161,7 @@
     let kithealth = 0;
     let monahealth = 0;
     let ophealth = 3;
+    const partyhp = [garfhealth, dalihealth, kithealth, monahealth, phealth]
 
     inpbox.addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
