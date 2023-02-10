@@ -175,8 +175,8 @@
     function terminaltext() {
       return document.getElementById("terminal").innerHTML
     }
-    function attack(health) {
-      health = health - 1;
+    function attack() {
+      ophealth -= 1;
     }
     function writeterm(inputtext) {
       document.getElementById("terminal").innerHTML = terminaltext() + "<br>" + inputtext
@@ -270,7 +270,7 @@
     }
     function playerturn(){
       if (uinp == "ATTACK") {
-        attack(ophealth);
+        attack();
       } else if (uinp == "PERSONA") {
         writeterm("YOU CAN'T CHANGE PERSONAS");
       } else if (uinp == "CHECK") {
@@ -283,9 +283,9 @@
       } else {}
     }
     function opturn() {
-      let cent = partyhp[Math.floor(Math.random() * 4)];
+      let cent = partyhp[Math.floor(Math.random() * 5)];
       while (phealth > 0) {
-        cent = partyhp[Math.floor(Math.random() * 4)];
+        cent = partyhp[Math.floor(Math.random() * 5)];
         if (cent > 0) {
           cent -= 1;
           break
