@@ -149,13 +149,18 @@
     let gamestate = "0"
     let time = 0;
     let points = 0;
-    const party = [0, 0, 0, 0];
+    const party = [0, 0, 0, 0, 1];
+    const partyhp = [garfhealth, dalihealth, kithealth, monahealth, phealth]
     let encountercountdown = 2;
     let levelcount = 0;
     let inpbox = document.getElementById("textinput");
     let uinp = document.getElementById("textinput").value;
     let phealth = 3;
     let atkstat = 1;
+    let garfhealth = 0;
+    let dalihealth = 0;
+    let kithealth = 0;
+    let monahealth = 0;
     let ophealth = 3;
 
     inpbox.addEventListener("keypress", function(event) {
@@ -275,12 +280,24 @@
         writeterm("TIME: " + time);
       } else {}
     }
+    function opturn() {
+      let cent = partyhp[Math.floor(Math.random() * 4)];
+      while (phealth > 0) {
+        cent = partyhp[Math.floor(Math.random() * 4)];
+        if (cent > 0) {
+          cent -= 1;
+          break
+        }
+      }
+    }
     function turn() {
-      playerturn()
+      playerturn();
+      opturn()
     }
     function garfget() {
       writeterm("YOU HAVE GARFIELD NOW")
       encountcheck();
+      garfhealth = 3;
       party[0] = 1;
       gamestate = "1";
     }
@@ -335,6 +352,15 @@
       writeterm("YOUR POINTS: " + points);
       writeterm("YOU HAVE " + partywincount + " PARTY MEMBERS OUT OF 4");
     }
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
+    console.log(Math.floor(Math.random() * 4))
   </script>
 </body>
 </html>
