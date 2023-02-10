@@ -106,6 +106,7 @@
     const party = [0, 0, 0, 0]
     let encountercountdown = 2
     let levelcount = 0
+    let atkstat = 1
     let inpbox = document.getElementById("textinput");
     let uinp = document.getElementById("textinput").value;
 
@@ -135,10 +136,14 @@
       if (gamestate == "0") {
         gamestate0()
       } else if (gamestate == "1") {
-        turn()
+        gamestate1()
       } else if (gamestate == "-1") {
         win1()
-      } 
+      } else if (gamestate == "2") {
+        turn()
+      } else if (gamestate == "3") {
+        recruit()
+      }
     }
     function gamestate0() {
       if (uinp == "PLAY") {
@@ -149,18 +154,57 @@
         writeterm('TYPE "PLAY" TO PLAY')
       }
     }
+    function gamestate1() {
+      writeterm("WHAT WOULD YOU LIKE TO DO?")
+      writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY")
+      writeterm("FIND ENEMY, FIGHT BOSS")
+      if (uinp = "RECRUIT") {
+        gamestate = "3"
+      } else if (uinp = "FIND ENEMY") {
+        writeterm("FIND ENEMY")
+      } else if (uinp = "FIGHT BOSS") {
+        writeterm("FIGHT BOSS")
+      } else if (uinp == "GARFIELD") {
+        garfield()
+      } else if (uinp == "MORGANA") {
+        mona()
+      } else if (uinp == "DALI") {
+        dali()
+      } else if (uinp == "MR. KITTY") {
+        mrkitty()
+      } else if (uinp == "MR KITTY") {
+        mrkitty()
+      }
+    }
+    function recruit() {
+      if (uinp == "GARFIELD") {
+        garfield()
+      } else if (uinp == "MORGANA") {
+        mona()
+      } else if (uinp == "DALI") {
+        dali()
+      } else if (uinp == "MR. KITTY") {
+        mrkitty()
+      } else if (uinp == "MR KITTY") {
+        mrkitty()
+      }
+    }
+    function garfield() {}
+    function dali() {}
+    function mona() {}
+    function mrkitty() {}
     function playerturn(){
       if (uinp == "ATTACK") {
-        attack(ophealth)
+        attack(ophealth);
       } else if (uinp == "PERSONA") {
-        writeterm("YOU CAN'T CHANGE PERSONAS")
+        writeterm("YOU CAN'T CHANGE PERSONAS");
       } else if (uinp == "CHECK") {
-        writeterm("PLAYER HEALTH: " + phealth)
-        writeterm("OPPONENT HEALTH: " + ophealth)
+        writeterm("PLAYER HEALTH: " + phealth);
+        writeterm("OPPONENT HEALTH: " + ophealth);
       } else if (uinp = "WIN") {
-        gamestate = "-1"
+        gamestate = "-1";
       } else if (uinp = "TIME") {
-        writeterm("TIME: " + time)
+        writeterm("TIME: " + time);
       } else {}
     }
     function turn() {
