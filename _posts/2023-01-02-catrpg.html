@@ -96,19 +96,18 @@
   });
   </script>
   <script>
-    let doc = document;
     let terminallimit = "13 lines";
     let gamestate = "0"
-    let phealth = 3;
-    let ophealth = 3;
     let time = 0;
     let points = 0;
-    const party = [0, 0, 0, 0]
-    let encountercountdown = 2
-    let levelcount = 0
-    let atkstat = 1
+    const party = [0, 0, 0, 0];
+    let encountercountdown = 2;
+    let levelcount = 0;
     let inpbox = document.getElementById("textinput");
     let uinp = document.getElementById("textinput").value;
+    let phealth = 3;
+    let atkstat = 1;
+    let ophealth = 3;
 
     inpbox.addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
@@ -126,7 +125,7 @@
       health = health - 1;
     }
     function writeterm(inputtext) {
-      doc.getElementById("terminal").innerHTML = terminaltext() + "<br>" + inputtext
+      document.getElementById("terminal").innerHTML = terminaltext() + "<br>" + inputtext
     }
     function grabinput() {
       let userchoice = doc.getElementById("textinput").value;
@@ -165,7 +164,7 @@
       } else if (uinp = "FIGHT BOSS") {
         writeterm("FIGHT BOSS");
       } else if (uinp == "GARFIELD") {
-        garfield();
+        garfget();
       } else if (uinp == "MORGANA") {
         mona();
       } else if (uinp == "DALI") {
@@ -178,7 +177,7 @@
     }
     function recruit() {
       if (uinp == "GARFIELD") {
-        garfield();
+        garfget();
       } else if (uinp == "MORGANA") {
         mona();
       } else if (uinp == "DALI") {
@@ -189,10 +188,18 @@
         mrkitty();
       }
     }
-    function garfield() {}
-    function dali() {}
-    function mona() {}
-    function mrkitty() {}
+    function garfield() {
+      ophealth = 10;
+    }
+    function dali() {
+      ophealth = 10;
+    }
+    function mona() {
+      ophealth = 10;
+    }
+    function mrkitty() {
+      ophealth = 10;
+    }
     function playerturn(){
       if (uinp == "ATTACK") {
         attack(ophealth);
@@ -209,6 +216,33 @@
     }
     function turn() {
       playerturn()
+    }
+    function garfget() {
+      encountcheck();
+      party[0] = 1;
+      gamestate = "1";
+    }
+    function monaget() {
+      encountcheck();
+      party[1] = 1;
+      gamestate = "1";
+    }
+    function daliget() {
+      encountcheck();
+      party[2] = 1;
+      gamestate = "1";
+    }
+    function kitget() {
+      encountcheck();
+      party[3] = 1;
+      gamestate = "1";
+    }
+    function encountcheck() {
+      encountercountdown -= 1;
+      if (encountercountdown = 0) {
+        levelcount += 1;
+        encountercountdown = 1 + levelcount;
+      }
     }
     function win1() {
       let partywincount = 0;
