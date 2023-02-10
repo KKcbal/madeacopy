@@ -146,17 +146,17 @@
     }
     function gamestate0() {
       if (uinp == "PLAY") {
-        writeterm("THE GAME HAS BEGUN");
+        console.log("play start")
         setInterval(timeincrease, 1000);
         gamestate = "1";
+        writeterm("WHAT WOULD YOU LIKE TO DO?");
+        writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY");
+        writeterm("FIND ENEMY, FIGHT BOSS");
       } else {
         writeterm('TYPE "PLAY" TO PLAY');
       }
     }
     function gamestate1() {
-      writeterm("WHAT WOULD YOU LIKE TO DO?");
-      writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY");
-      writeterm("FIND ENEMY, FIGHT BOSS");
       if (uinp = "RECRUIT") {
         gamestate = "3";
       } else if (uinp = "FIND ENEMY") {
