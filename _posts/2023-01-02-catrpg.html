@@ -134,59 +134,59 @@
     }
     function enter() {
       if (gamestate == "0") {
-        gamestate0()
+        gamestate0();
       } else if (gamestate == "1") {
-        gamestate1()
+        gamestate1();
       } else if (gamestate == "-1") {
-        win1()
+        win1();
       } else if (gamestate == "2") {
-        turn()
+        turn();
       } else if (gamestate == "3") {
-        recruit()
+        recruit();
       }
     }
     function gamestate0() {
       if (uinp == "PLAY") {
-        writeterm("THE GAME HAS BEGUN")
-        setInterval(timeincrease, 1000)
-        gamestate = "1"
+        writeterm("THE GAME HAS BEGUN");
+        setInterval(timeincrease, 1000);
+        gamestate = "1";
       } else {
-        writeterm('TYPE "PLAY" TO PLAY')
+        writeterm('TYPE "PLAY" TO PLAY');
       }
     }
     function gamestate1() {
-      writeterm("WHAT WOULD YOU LIKE TO DO?")
-      writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY")
-      writeterm("FIND ENEMY, FIGHT BOSS")
+      writeterm("WHAT WOULD YOU LIKE TO DO?");
+      writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY");
+      writeterm("FIND ENEMY, FIGHT BOSS");
       if (uinp = "RECRUIT") {
-        gamestate = "3"
+        gamestate = "3";
       } else if (uinp = "FIND ENEMY") {
-        writeterm("FIND ENEMY")
+        writeterm("FIND ENEMY");
       } else if (uinp = "FIGHT BOSS") {
-        writeterm("FIGHT BOSS")
+        writeterm("FIGHT BOSS");
       } else if (uinp == "GARFIELD") {
-        garfield()
+        garfield();
       } else if (uinp == "MORGANA") {
-        mona()
+        mona();
       } else if (uinp == "DALI") {
-        dali()
+        dali();
       } else if (uinp == "MR. KITTY") {
-        mrkitty()
+        mrkitty();
       } else if (uinp == "MR KITTY") {
-        mrkitty()
+        mrkitty();
       }
     }
     function recruit() {
       if (uinp == "GARFIELD") {
-        garfield()
+        garfield();
       } else if (uinp == "MORGANA") {
-        mona()
+        mona();
       } else if (uinp == "DALI") {
-        dali()
+        dali();
       } else if (uinp == "MR. KITTY") {
-        mrkitty()
+        mrkitty();
       } else if (uinp == "MR KITTY") {
-        mrkitty()
+        mrkitty();
       }
     }
     function garfield() {}
@@ -211,33 +211,33 @@
       playerturn()
     }
     function win1() {
-      let partywincount = 0
+      let partywincount = 0;
       if (party[0] == 1) {
-        partywincount += 1
+        partywincount += 1;
       }
       if (party[1] == 1) {
-        partywincount += 1
+        partywincount += 1;
       }
       if (party[2] == 1) {
-        partywincount += 1
+        partywincount += 1;
       }
       if (party[3] == 1) {
-        partywincount += 1
+        partywincount += 1;
       }
       if (partywincount == 0) {
-        points += 100
+        points += 100;
       } else if (partywincount == 1) {
-        points += 75
+        points += 75;
       } else if (partywincount == 2) {
-        points += 50
+        points += 50;
       } else if (partywincount == 3) {
-        points += 25
+        points += 25;
       } else {points += 10}
-      writeterm("CONGRATULATIONS, YOU WON!")
-      writeterm("YOUR TIME: " + time)
-      writeterm("YOUR HEALTH: " + health)
-      writeterm("YOUR POINTS: " + points)
-      writeterm("YOU HAVE " + partywincount + " PARTY MEMBERS OUT OF 4")
+      writeterm("CONGRATULATIONS, YOU WON!");
+      writeterm("YOUR TIME: " + time);
+      writeterm("YOUR HEALTH: " + health);
+      writeterm("YOUR POINTS: " + points);
+      writeterm("YOU HAVE " + partywincount + " PARTY MEMBERS OUT OF 4");
     }
   </script>
 </body>
