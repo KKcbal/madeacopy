@@ -218,6 +218,7 @@
         gamestate = "1";
         writeterm("WHAT WOULD YOU LIKE TO DO?");
         writeterm("RECRUIT A NEW TEAMMATE");
+        writeterm("GARFIELD, MORGANA, DALI, MR. KITTY")
         writeterm("FIND ENEMY, FIGHT BOSS");
       } else {
         writeterm('TYPE "PLAY" TO PLAY');
@@ -240,7 +241,18 @@
         openPopup()
       } else if (uinp == "UNPOP") {
         closePopup()
+      } else if (uinp == "CHECK") {
+        checkm()
       }
+    }
+    function checkm() {
+      writeterm("PARTY:")
+      if (party[0] == 1) {writeterm("GARFIELD")}
+      if (party[1] == 1) {writeterm("DALI")}
+      if (party[2] == 1) {writeterm("MORGANA")}
+      if (party[3] == 1) {writeterm("MR. KITTY")}
+      writeterm("ATTACK: " + atkstat)
+      writeterm("PARTY HEALTH: " + partyhp)
     }
     function recruit() {
       if (uinp == "GARFIELD") {
@@ -248,12 +260,16 @@
         gamestate = "2";
       } else if (uinp == "MORGANA") {
         mona();
+        gamestate = "2";
       } else if (uinp == "DALI") {
         dali();
+        gamestate = "2";
       } else if (uinp == "MR. KITTY") {
         mrkitty();
+        gamestate = "2";
       } else if (uinp == "MR KITTY") {
         mrkitty();
+        gamestate = "2";
       }
     }
     function garfield() {
@@ -313,6 +329,17 @@
     function turn() {
       playerturn();
       opturn()
+      if (ophealth <= 0) {
+        winbattle()
+      }
+    }
+    function winbattle() {
+      writeterm("THE OPPONENT HAS BEEN DEFFEATED")
+      gamestate = "1"
+      writeterm("WHAT WOULD YOU LIKE TO DO?");
+      writeterm("RECRUIT A NEW TEAMMATE");
+      writeterm("GARFIELD, MORGANA, DALI, MR. KITTY")
+      writeterm("FIND ENEMY, FIGHT BOSS");
     }
     function garfget() {
       writeterm("YOU HAVE GARFIELD NOW")
