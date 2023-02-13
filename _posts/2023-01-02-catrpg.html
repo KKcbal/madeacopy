@@ -154,13 +154,13 @@
     let levelcount = 0;
     let inpbox = document.getElementById("textinput");
     let uinp = document.getElementById("textinput").value;
-    let phealth = 3;
+    let phealth = 7;
     let atkstat = 1;
     let garfhealth = 0;
     let dalihealth = 0;
     let kithealth = 0;
     let monahealth = 0;
-    let ophealth = 3;
+    let ophealth = 7;
     const partyhp = [garfhealth, dalihealth, monahealth, kithealth, phealth]
     const get = [0, 0, 0, 0]
 
@@ -177,7 +177,7 @@
       return document.getElementById("terminal").innerHTML
     }
     function attack() {
-      let doctor = Math.floor(Math.random() * 5) + atkstat - 1
+      let doctor = Math.floor(Math.random() * 4) + atkstat - 1
       ophealth -= doctor;
       writeterm("YOU DID " + doctor + " DAMAGE")
     }
@@ -267,22 +267,22 @@
     function garfield() {
       writeterm("YOU'RE FIGHTING GARFIELD")
       writeterm("DEFEAT HIM TO RECRUIT HIM")
-      ophealth = 10;
+      ophealth = 7;
     }
     function dali() {
       writeterm("YOU'RE FIGHTING DALI")
       writeterm("DEFEAT HIM TO RECRUIT HIM")
-      ophealth = 10;
+      ophealth = 7;
     }
     function mona() {
       writeterm("YOU'RE FIGHTING MORGANA")
       writeterm("DEFEAT HIM TO RECRUIT HIM")
-      ophealth = 10;
+      ophealth = 7;
     }
     function mrkitty() {
       writeterm("YOU'RE FIGHTING MR. KITTY")
       writeterm("DEFEAT HIM TO RECRUIT HIM")
-      ophealth = 10;
+      ophealth = 7;
     }
     function playerturn(){
       if (uinp == "ATTACK") {
@@ -329,6 +329,7 @@
       }
     }
     function winbattle() {
+      phealth = 7
       writeterm("THE OPPONENT HAS BEEN DEFFEATED")
       gamestate = "1"
       writeterm("WHAT WOULD YOU LIKE TO DO?");
