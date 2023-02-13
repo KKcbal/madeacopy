@@ -177,7 +177,7 @@
       return document.getElementById("terminal").innerHTML
     }
     function attack() {
-      let doctor = Math.floor(Math.random() * 5)
+      let doctor = Math.floor(Math.random() * 5) + atkstat - 1
       ophealth -= doctor;
       writeterm("YOU DID " + doctor + " DAMAGE")
     }
@@ -199,16 +199,9 @@
         turn();
       } else if (gamestate == "3") {
         recruit();
-      } else if (gamestate == "g") {
-        if (get[0] == 1) {
-          garfget()
-        } else if (get[1] == 1) {
-          monaget()
-        } else if (get[2] == 1) {
-          daliget()
-        } else if (get[3] == 1) {
-          kitget()
-        }
+      } else if (gamestate == "l") {
+        writeterm("YOU DIED")
+        writeterm("TIME: " + time)
       }
     }
     function gamestate0() {
@@ -218,7 +211,6 @@
         gamestate = "1";
         writeterm("WHAT WOULD YOU LIKE TO DO?");
         writeterm("RECRUIT A NEW TEAMMATE");
-        writeterm("GARFIELD, MORGANA, DALI, MR. KITTY")
         writeterm("FIND ENEMY, FIGHT BOSS");
       } else {
         writeterm('TYPE "PLAY" TO PLAY');
@@ -228,7 +220,7 @@
       console.log(uinp)
       if (uinp == "RECRUIT") {
         console.log(uinp)
-        writeterm("RECRUIT")
+        writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY")
         gamestate = "3";
       } else if (uinp == "FIND ENEMY") {
         writeterm("FIND ENEMY");
@@ -332,6 +324,9 @@
       if (ophealth <= 0) {
         winbattle()
       }
+      if (phealth <= 0) {
+        gamestate = "l"
+      }
     }
     function winbattle() {
       writeterm("THE OPPONENT HAS BEEN DEFFEATED")
@@ -340,6 +335,22 @@
       writeterm("RECRUIT A NEW TEAMMATE");
       writeterm("GARFIELD, MORGANA, DALI, MR. KITTY")
       writeterm("FIND ENEMY, FIGHT BOSS");
+      if (get[0] == 1) {
+        garfget()
+        get[0] = 2
+      }
+      if (get[1] == 1) {
+        daliget()
+        get[1] = 2
+      }
+      if (get[2] == 1) {
+        monaget()
+        get[2] = 2
+      }
+      if (get[3] == 1) {
+        kitget()
+        get[3] = 2
+      }
     }
     function garfget() {
       writeterm("YOU HAVE GARFIELD NOW")
@@ -371,6 +382,8 @@
       if (encountercountdown = 0) {
         levelcount += 1;
         encountercountdown = 1 + levelcount;
+        writeterm("YOU LEVELED UP")
+        writeterm("YOUR ATTACK: " + atkstat)
       }
     }
     function win1() {
