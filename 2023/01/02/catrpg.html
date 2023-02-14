@@ -199,7 +199,7 @@
         turn();
       } else if (gamestate == "3") {
         recruit();
-      } else if (gamestate == "l") {
+      } else if (gamestate == "L") {
         writeterm("YOU DIED")
         writeterm("TIME: " + time)
       }
@@ -250,18 +250,23 @@
       if (uinp == "GARFIELD") {
         garfield();
         gamestate = "2";
+        get[0] = 1
       } else if (uinp == "MORGANA") {
         mona();
         gamestate = "2";
+        get[2] = 1
       } else if (uinp == "DALI") {
         dali();
         gamestate = "2";
+        get[1] = 1
       } else if (uinp == "MR. KITTY") {
         mrkitty();
         gamestate = "2";
+        get[3] = 1
       } else if (uinp == "MR KITTY") {
         mrkitty();
         gamestate = "2";
+        get[3] = 1
       }
     }
     function garfield() {
@@ -325,7 +330,7 @@
         winbattle()
       }
       if (phealth <= 0) {
-        gamestate = "l"
+        gamestate = "L"
       }
     }
     function winbattle() {
