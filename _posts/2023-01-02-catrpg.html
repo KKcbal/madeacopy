@@ -333,6 +333,13 @@
         gamestate = "L"
       }
     }
+    function healthreset() {
+      phealth = 7
+      if (party[0] == 1) {garfhealth = 7}
+      if (party[1] == 1) {dalihealth = 7}
+      if (party[2] == 1) {monahealth = 7}
+      if (party[3] == 1) {kithealth = 7}
+    }
     function winbattle() {
       phealth = 7
       writeterm("THE OPPONENT HAS BEEN DEFFEATED")
@@ -361,25 +368,28 @@
     function garfget() {
       writeterm("YOU HAVE GARFIELD NOW")
       encountcheck();
-      garfhealth = 3;
+      garfhealth = 7;
       party[0] = 1;
       gamestate = "1";
     }
     function monaget() {
       writeterm("YOU HAVE MORGANA NOW")
       encountcheck();
-      party[1] = 1;
+      monahealth = 7
+      party[2] = 1;
       gamestate = "1";
     }
     function daliget() {
       writeterm("YOU HAVE DALI NOW")
       encountcheck();
-      party[2] = 1;
+      dalihealth = 7
+      party[1] = 1;
       gamestate = "1";
     }
     function kitget() {
       writeterm("YOU HAVE MR. KITTY NOW")
       encountcheck();
+      kithealth = 7
       party[3] = 1;
       gamestate = "1";
     }
