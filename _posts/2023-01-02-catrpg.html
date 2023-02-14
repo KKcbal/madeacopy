@@ -325,6 +325,22 @@
     }
     function turn() {
       playerturn();
+      if (party[0] == 1) {
+        writeterm("GARFIELD ATTACKS")
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+      }
+      if (party[1] == 1) {
+        writeterm("DALI ATTACKS")
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+      }
+      if (party[2] == 1) {
+        writeterm("MORGANA ATTACKS")
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+      }
+      if (party[3] == 1) {
+        writeterm("MR. KITTY ATTACKS")
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+      }
       opturn()
       if (ophealth <= 0) {
         winbattle()
