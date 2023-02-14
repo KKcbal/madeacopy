@@ -223,6 +223,7 @@
         writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY")
         gamestate = "3";
       } else if (uinp == "FIND ENEMY") {
+        writeterm("YOU ARE IN FRONT OF AN ENEMY")
         randenc()
       } else if (uinp == "FIGHT BOSS") {
         writeterm("FIGHT BOSS");
@@ -356,6 +357,16 @@
       if (party[2] == 1) {monahealth = 7}
       if (party[3] == 1) {kithealth = 7}
     }
+    function encountcheck() {
+      console.log("Encounter check")
+      encountercountdown -= 1;
+      if (encountercountdown = 0) {
+        levelcount += 1;
+        encountercountdown = 1 + levelcount;
+        writeterm("YOU LEVELED UP");
+        writeterm("YOUR ATTACK: " + atkstat)
+      }
+    }
     function winbattle() {
       phealth = 7;
       writeterm("THE OPPONENT HAS BEEN DEFFEATED");
@@ -409,15 +420,6 @@
       kithealth = 7;
       party[3] = 1;
       gamestate = "1";
-    }
-    function encountcheck() {
-      encountercountdown -= 1;
-      if (encountercountdown = 0) {
-        levelcount += 1;
-        encountercountdown = 1 + levelcount;
-        writeterm("YOU LEVELED UP");
-        writeterm("YOUR ATTACK: " + atkstat)
-      }
     }
     function win1() {
       let partywincount = 0;
