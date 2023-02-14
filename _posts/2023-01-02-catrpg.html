@@ -177,16 +177,16 @@
       return document.getElementById("terminal").innerHTML
     }
     function attack() {
-      let doctor = Math.floor(Math.random() * 4) + atkstat - 1
+      let doctor = Math.floor(Math.random() * 4) + atkstat - 1;
       ophealth -= doctor;
-      writeterm("YOU DID " + doctor + " DAMAGE")
+      writeterm("YOU DID " + doctor + " DAMAGE");
     }
     function writeterm(inputtext) {
-      document.getElementById("terminal").innerHTML = terminaltext() + "<br>" + inputtext
+      document.getElementById("terminal").innerHTML = terminaltext() + "<br>" + inputtext;
     }
     function grabinput() {
       let userchoice = doc.getElementById("textinput").value;
-      return userchoice
+      return userchoice;
     }
     function enter() {
       if (gamestate == "0") {
@@ -223,18 +223,18 @@
         writeterm("RECRUIT: GARFIELD, MORGANA, DALI, MR. KITTY")
         gamestate = "3";
       } else if (uinp == "FIND ENEMY") {
-        writeterm("FIND ENEMY");
+        randenc()
       } else if (uinp == "FIGHT BOSS") {
         writeterm("FIGHT BOSS");
       } else if (uinp == "WIN") {
         gamestate = "-1";
         win();
       } else if (uinp == "POP") {
-        openPopup()
+        openPopup();
       } else if (uinp == "UNPOP") {
-        closePopup()
+        closePopup();
       } else if (uinp == "CHECK") {
-        checkm()
+        checkm();
       }
     }
     function checkm() {
@@ -243,50 +243,54 @@
       if (party[1] == 1) {writeterm("DALI")}
       if (party[2] == 1) {writeterm("MORGANA")}
       if (party[3] == 1) {writeterm("MR. KITTY")}
-      writeterm("ATTACK: " + atkstat)
-      writeterm("PARTY HEALTH: " + partyhp)
+      writeterm("ATTACK: " + atkstat);
+      writeterm("PARTY HEALTH: " + partyhp);
+    }
+    function randenc() {
+      gamestate = "2"
+      ophealth = 7
     }
     function recruit() {
       if (uinp == "GARFIELD") {
         garfield();
         gamestate = "2";
-        get[0] = 1
+        get[0] = 1;
       } else if (uinp == "MORGANA") {
         mona();
         gamestate = "2";
-        get[2] = 1
+        get[2] = 1;
       } else if (uinp == "DALI") {
         dali();
         gamestate = "2";
-        get[1] = 1
+        get[1] = 1;
       } else if (uinp == "MR. KITTY") {
         mrkitty();
         gamestate = "2";
-        get[3] = 1
+        get[3] = 1;
       } else if (uinp == "MR KITTY") {
         mrkitty();
         gamestate = "2";
-        get[3] = 1
+        get[3] = 1;
       }
     }
     function garfield() {
-      writeterm("YOU'RE FIGHTING GARFIELD")
-      writeterm("DEFEAT HIM TO RECRUIT HIM")
+      writeterm("YOU'RE FIGHTING GARFIELD");
+      writeterm("DEFEAT HIM TO RECRUIT HIM");
       ophealth = 7;
     }
     function dali() {
-      writeterm("YOU'RE FIGHTING DALI")
-      writeterm("DEFEAT HIM TO RECRUIT HIM")
+      writeterm("YOU'RE FIGHTING DALI");
+      writeterm("DEFEAT HIM TO RECRUIT HIM");
       ophealth = 7;
     }
     function mona() {
-      writeterm("YOU'RE FIGHTING MORGANA")
-      writeterm("DEFEAT HIM TO RECRUIT HIM")
+      writeterm("YOU'RE FIGHTING MORGANA");
+      writeterm("DEFEAT HIM TO RECRUIT HIM");
       ophealth = 7;
     }
     function mrkitty() {
-      writeterm("YOU'RE FIGHTING MR. KITTY")
-      writeterm("DEFEAT HIM TO RECRUIT HIM")
+      writeterm("YOU'RE FIGHTING MR. KITTY");
+      writeterm("DEFEAT HIM TO RECRUIT HIM");
       ophealth = 7;
     }
     function playerturn(){
@@ -311,13 +315,13 @@
         if (partyhp[cent] > 0) {
           cent -= 1;
           if (cent == 0) {
-            writeterm("GARFIELD TOOK 1 DAMAGE")
+            writeterm("GARFIELD TOOK 1 DAMAGE");
           } else if (cent == 1) {
-            writeterm("DALI TOOK 1 DAMAGE")
+            writeterm("DALI TOOK 1 DAMAGE");
           } else if (cent == 2) {
-            writeterm("MORGANA TOOK 1 DAMAGE")
+            writeterm("MORGANA TOOK 1 DAMAGE");
           } else if (cent == 3) {
-            writeterm("MR. KITTY TOOK 1 DAMAGE")
+            writeterm("MR. KITTY TOOK 1 DAMAGE");
           } else {writeterm("YOU TOOK 1 DAMAGE")}
           break
         }
@@ -326,90 +330,83 @@
     function turn() {
       playerturn();
       if (party[0] == 1) {
-        writeterm("GARFIELD ATTACKS")
-        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+        writeterm("GARFIELD ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
       if (party[1] == 1) {
-        writeterm("DALI ATTACKS")
-        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+        writeterm("DALI ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
       if (party[2] == 1) {
-        writeterm("MORGANA ATTACKS")
-        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+        writeterm("MORGANA ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
       if (party[3] == 1) {
-        writeterm("MR. KITTY ATTACKS")
-        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1
+        writeterm("MR. KITTY ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
       opturn()
-      if (ophealth <= 0) {
-        winbattle()
-      }
-      if (phealth <= 0) {
-        gamestate = "L"
-      }
+      if (ophealth <= 0) {winbattle()}
+      if (phealth <= 0) {gamestate = "L"}
     }
     function healthreset() {
-      phealth = 7
+      phealth = 7;
       if (party[0] == 1) {garfhealth = 7}
       if (party[1] == 1) {dalihealth = 7}
       if (party[2] == 1) {monahealth = 7}
       if (party[3] == 1) {kithealth = 7}
     }
     function winbattle() {
-      phealth = 7
-      writeterm("THE OPPONENT HAS BEEN DEFFEATED")
-      gamestate = "1"
+      phealth = 7;
+      writeterm("THE OPPONENT HAS BEEN DEFFEATED");
+      gamestate = "1";
       writeterm("WHAT WOULD YOU LIKE TO DO?");
       writeterm("RECRUIT A NEW TEAMMATE");
-      writeterm("GARFIELD, MORGANA, DALI, MR. KITTY")
+      writeterm("GARFIELD, MORGANA, DALI, MR. KITTY");
       writeterm("FIND ENEMY, FIGHT BOSS");
+      encountcheck();
       if (get[0] == 1) {
-        garfget()
-        get[0] = 2
+        garfget();
+        get[0] = 2;
       }
       if (get[1] == 1) {
-        daliget()
-        get[1] = 2
+        daliget();
+        get[1] = 2;
       }
       if (get[2] == 1) {
-        monaget()
-        get[2] = 2
+        monaget();
+        get[2] = 2;
       }
       if (get[3] == 1) {
-        kitget()
-        get[3] = 2
+        kitget();
+        get[3] = 2;
       }
     }
     function garfget() {
-      writeterm("YOU HAVE GARFIELD NOW")
-      console.log("g")
-      encountcheck();
+      writeterm("YOU HAVE GARFIELD NOW");
+      console.log("g");
       garfhealth = 7;
       party[0] = 1;
       gamestate = "1";
     }
     function monaget() {
-      writeterm("YOU HAVE MORGANA NOW")
-      console.log("m")
-      encountcheck();
-      monahealth = 7
+      writeterm("YOU HAVE MORGANA NOW");
+      console.log("m");
+      monahealth = 7;
       party[2] = 1;
       gamestate = "1";
     }
     function daliget() {
-      writeterm("YOU HAVE DALI NOW")
-      console.log("d")
-      encountcheck();
-      dalihealth = 7
+      writeterm("YOU HAVE DALI NOW");
+      console.log("d");
+      dalihealth = 7;
       party[1] = 1;
       gamestate = "1";
     }
     function kitget() {
-      writeterm("YOU HAVE MR. KITTY NOW")
-      console.log("k")
-      encountcheck();
-      kithealth = 7
+      writeterm("YOU HAVE MR. KITTY NOW");
+      console.log("k");
+      kithealth = 7;
       party[3] = 1;
       gamestate = "1";
     }
@@ -418,7 +415,7 @@
       if (encountercountdown = 0) {
         levelcount += 1;
         encountercountdown = 1 + levelcount;
-        writeterm("YOU LEVELED UP")
+        writeterm("YOU LEVELED UP");
         writeterm("YOUR ATTACK: " + atkstat)
       }
     }
