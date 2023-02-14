@@ -202,6 +202,8 @@
       } else if (gamestate == "L") {
         writeterm("YOU DIED")
         writeterm("TIME: " + time)
+      } else if (gamestate == "4") {
+        boss()
       }
     }
     function gamestate0() {
@@ -226,7 +228,10 @@
         writeterm("YOU ARE IN FRONT OF AN ENEMY")
         randenc()
       } else if (uinp == "FIGHT BOSS") {
-        writeterm("FIGHT BOSS");
+        ophealth = 20
+        gamestate = "4"
+        writeterm("THE BOSS STANDS BEFORE YOU");
+        writeterm("YOU MUST DEFEAT HIM")
       } else if (uinp == "WIN") {
         gamestate = "-1";
         win();
@@ -349,6 +354,46 @@
       opturn()
       if (ophealth <= 0) {winbattle()}
       if (phealth <= 0) {gamestate = "L"}
+    }
+    function bossturn() {
+      let bent = Math.floor(Math.random() * 5);
+      let davidt = Math.floor(Math.random() * (3 - 1) ) + 1;
+      while (phealth > 0) {
+        cent = Math.floor(Math.random() * 5);
+        if (partyhp[cent] > 0) {
+          cent -= davidt;
+          if (cent == 0) {
+            writeterm("GARFIELD TOOK " + davidt + " DAMAGE");
+          } else if (cent == 1) {
+            writeterm("DALI TOOK " + davidt + " DAMAGE");
+          } else if (cent == 2) {
+            writeterm("MORGANA TOOK " + davidt + " DAMAGE");
+          } else if (cent == 3) {
+            writeterm("MR. KITTY TOOK " + davidt + " DAMAGE");
+          } else {writeterm("YOU TOOK " + davidt + " DAMAGE")}
+          break
+        }
+      }
+    }
+    function boss() {
+      playerturn()
+      if (party[0] == 1) {
+        writeterm("GARFIELD ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
+      }
+      if (party[1] == 1) {
+        writeterm("DALI ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
+      }
+      if (party[2] == 1) {
+        writeterm("MORGANA ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
+      }
+      if (party[3] == 1) {
+        writeterm("MR. KITTY ATTACKS");
+        ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
+      }
+      bossturn()
     }
     function healthreset() {
       phealth = 7;
