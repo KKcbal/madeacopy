@@ -359,8 +359,8 @@
     }
     function encountcheck() {
       console.log("Encounter check")
-      encountercountdown -= 1;
-      if (encountercountdown = 0) {
+      encountercountdown = encountercountdown - 1;
+      if (encountercountdown == 0) {
         levelcount += 1;
         encountercountdown = 1 + levelcount;
         writeterm("YOU LEVELED UP");
