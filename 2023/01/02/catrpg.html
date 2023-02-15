@@ -398,6 +398,15 @@
         ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
       bossturn()
+      if (ophealth <= 0) {
+        win1()
+        gamestate = "-1"
+      }
+      if (phealth <= 0) {
+        writeterm("YOU DIED")
+        writeterm("TIME: " + time)
+        gamestate = "L"
+      }
     }
     function healthreset() {
       phealth = 7;
@@ -472,6 +481,7 @@
       gamestate = "1";
     }
     function win1() {
+      writeterm("THE BOSS HAS BEEN DEFEATED")
       let partywincount = 0;
       if (party[0] == 1) {
         partywincount += 1;
