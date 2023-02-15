@@ -335,25 +335,33 @@
     }
     function turn() {
       playerturn();
+      console.log("after playerturn")
       if (party[0] == 1) {
         writeterm("GARFIELD ATTACKS");
         ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
+      console.log("after garfield")
       if (party[1] == 1) {
         writeterm("DALI ATTACKS");
         ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
+      console.log("after dali")
       if (party[2] == 1) {
         writeterm("MORGANA ATTACKS");
         ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
+      console.log("after morgana")
       if (party[3] == 1) {
         writeterm("MR. KITTY ATTACKS");
         ophealth -= Math.floor(Math.random() * (2 - 1) ) + 1;
       }
+      console.log("after mr kitty")
       opturn()
+      console.log("after opturn")
       if (ophealth <= 0) {winbattle()}
+      console.log("after win")
       if (phealth <= 0) {gamestate = "L"}
+      console.log("after lose")
     }
     function bossturn() {
       let bent = Math.floor(Math.random() * 5);
