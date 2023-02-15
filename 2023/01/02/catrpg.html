@@ -156,12 +156,8 @@
     let uinp = document.getElementById("textinput").value;
     let phealth = 7;
     let atkstat = 1;
-    let garfhealth = 0;
-    let dalihealth = 0;
-    let kithealth = 0;
-    let monahealth = 0;
     let ophealth = 7;
-    const partyhp = []
+    const partyhp = [7, 0, 0, 0, 0]
     const get = [0, 0, 0, 0]
 
     inpbox.addEventListener("keypress", function(event) {
@@ -317,16 +313,17 @@
     function opturn() {
       let cent = Math.floor(Math.random() * 5);
       while (phealth > 0) {
+        console.log("one while loop")
         cent = Math.floor(Math.random() * 5);
         if (partyhp[cent] > 0) {
           partyhp[cent] -= 1;
-          if (cent == 0) {
+          if (cent == 1) {
             writeterm("GARFIELD TOOK 1 DAMAGE");
-          } else if (cent == 1) {
-            writeterm("DALI TOOK 1 DAMAGE");
           } else if (cent == 2) {
-            writeterm("MORGANA TOOK 1 DAMAGE");
+            writeterm("DALI TOOK 1 DAMAGE");
           } else if (cent == 3) {
+            writeterm("MORGANA TOOK 1 DAMAGE");
+          } else if (cent == 4) {
             writeterm("MR. KITTY TOOK 1 DAMAGE");
           } else {writeterm("YOU TOOK 1 DAMAGE")}
           break
@@ -369,14 +366,14 @@
       while (phealth > 0) {
         bent = Math.floor(Math.random() * 5);
         if (partyhp[bent] > 0) {
-          party[bent] -= davidt;
-          if (bent == 0) {
+          partyhp[bent] -= davidt;
+          if (bent == 1) {
             writeterm("GARFIELD TOOK " + davidt + " DAMAGE");
-          } else if (bent == 1) {
-            writeterm("DALI TOOK " + davidt + " DAMAGE");
           } else if (bent == 2) {
-            writeterm("MORGANA TOOK " + davidt + " DAMAGE");
+            writeterm("DALI TOOK " + davidt + " DAMAGE");
           } else if (bent == 3) {
+            writeterm("MORGANA TOOK " + davidt + " DAMAGE");
+          } else if (bent == 4) {
             writeterm("MR. KITTY TOOK " + davidt + " DAMAGE");
           } else {writeterm("YOU TOOK " + davidt + " DAMAGE")}
           break
@@ -413,11 +410,11 @@
       }
     }
     function healthreset() {
-      phealth = 7;
-      if (party[0] == 1) {garfhealth = 7}
-      if (party[1] == 1) {dalihealth = 7}
-      if (party[2] == 1) {monahealth = 7}
-      if (party[3] == 1) {kithealth = 7}
+      partyhp[0] = 7;
+      if (party[0] == 1) {partyhp[1] = 7}
+      if (party[1] == 1) {partyhp[2] = 7}
+      if (party[2] == 1) {partyhp[3] = 7}
+      if (party[3] == 1) {partyhp[4] = 7}
     }
     function encountcheck() {
       console.log("Encounter check")
@@ -459,28 +456,28 @@
     function garfget() {
       writeterm("YOU HAVE GARFIELD NOW");
       console.log("g");
-      partyhp[0] = 7;
+      partyhp[1] = 7;
       party[0] = 1;
       gamestate = "1";
     }
     function monaget() {
       writeterm("YOU HAVE MORGANA NOW");
       console.log("m");
-      partyhp[2] = 7;
+      partyhp[3] = 7;
       party[2] = 1;
       gamestate = "1";
     }
     function daliget() {
       writeterm("YOU HAVE DALI NOW");
       console.log("d");
-      partyhp[1] = 7;
+      partyhp[2] = 7;
       party[1] = 1;
       gamestate = "1";
     }
     function kitget() {
       writeterm("YOU HAVE MR. KITTY NOW");
       console.log("k");
-      partyhp[3] = 7;
+      partyhp[4] = 7;
       party[3] = 1;
       gamestate = "1";
     }
