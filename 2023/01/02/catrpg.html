@@ -302,7 +302,7 @@
       } else if (uinp == "PERSONA") {
         writeterm("YOU CAN'T CHANGE PERSONAS");
       } else if (uinp == "CHECK") {
-        writeterm("PLAYER HEALTH: " + phealth);
+        writeterm("PLAYER HEALTH: " + partyhp[0]);
         writeterm("OPPONENT HEALTH: " + ophealth);
       } else if (uinp == "WIN") {
         gamestate = "-1";
@@ -312,7 +312,7 @@
     }
     function opturn() {
       let cent = Math.floor(Math.random() * 5);
-      while (phealth > 0) {
+      while (partyhp[0] > 0) {
         console.log("one while loop")
         cent = Math.floor(Math.random() * 5);
         if (partyhp[cent] > 0) {
@@ -357,13 +357,13 @@
       console.log("after opturn")
       if (ophealth <= 0) {winbattle()}
       console.log("after win")
-      if (phealth <= 0) {gamestate = "L"}
+      if (partyhp[0] <= 0) {gamestate = "L"}
       console.log("after lose")
     }
     function bossturn() {
       let bent = Math.floor(Math.random() * 5);
       let davidt = Math.floor(Math.random() * (2 - 1) ) + 1;
-      while (phealth > 0) {
+      while (partyhp[0] > 0) {
         bent = Math.floor(Math.random() * 5);
         if (partyhp[bent] > 0) {
           partyhp[bent] -= davidt;
@@ -403,7 +403,7 @@
         win1()
         gamestate = "-1"
       }
-      if (phealth <= 0) {
+      if (partyhp[0] <= 0) {
         writeterm("YOU DIED")
         writeterm("TIME: " + time)
         gamestate = "L"
@@ -428,7 +428,7 @@
       }
     }
     function winbattle() {
-      phealth = 7;
+      partyhp[0] = 7;
       writeterm("THE OPPONENT HAS BEEN DEFFEATED");
       gamestate = "1";
       writeterm("WHAT WOULD YOU LIKE TO DO?");
@@ -507,7 +507,7 @@
       } else {points += 10}
       writeterm("CONGRATULATIONS, YOU WON!");
       writeterm("YOUR TIME: " + time);
-      writeterm("YOUR HEALTH: " + phealth);
+      writeterm("YOUR HEALTH: " + partyhp[0]);
       writeterm("YOUR POINTS: " + points);
       writeterm("YOU HAVE " + partywincount + " PARTY MEMBERS OUT OF 4");
     }
