@@ -134,7 +134,7 @@
 
 <p>Create API</p>
 
-<form action="javascript:create_user()">
+<form action="javascript:create_piss()">
     <p><label>
         User ID:
         <input type="text" name="uid" id="uid" required>
@@ -162,17 +162,17 @@
     // prepare HTML result container for new output
     const resultContainer = document.getElementById("result");
     // prepare URL's to allow easy switch from deployment and localhost
-    const url = "http://localhost:8086/api/users"
+    const url = "http://172.20.230.102:8086/api/pisses"
     //const url = "https://flask.nighthawkcodingsociety.com/api/users"
     const create_fetch = url + '/create';
     const read_fetch = url + '/';
   
     // Load users on page entry
-    read_users();
+    read_pisses();
   
   
     // Display User Table, data is fetched from Backend Database
-    function read_users() {
+    function read_pisses() {
       // prepare fetch options
       const read_options = {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -219,7 +219,7 @@
       });
     }
   
-    function create_user(){
+    function create_piss(){
       //Validate Password (must be 6-20 characters in len)
       //verifyPassword("click");
       const body = {
