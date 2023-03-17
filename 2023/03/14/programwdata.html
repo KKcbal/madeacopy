@@ -390,11 +390,11 @@ create, read, update, delete methods are self explanitory. they define methods t
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Created new uid toby
-Created new uid niko
-Created new uid lex
-Created new uid whit
-Created new uid indi
-Created new uid raven
+Records exist uid niko, or error.
+Records exist uid lex, or error.
+Records exist uid whit, or error.
+Records exist uid indi, or error.
+Records exist uid raven, or error.
 </pre>
 </div>
 </div>
@@ -670,11 +670,11 @@ json_ready assignment will put the users from the database in a new format</p>
         <span class="k">return</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">pass</span>
-    <span class="n">npassword</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your new password:&quot;</span><span class="p">)</span>
+    <span class="c1">#npassword = input(&quot;Enter your new password:&quot;)</span>
     
     <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="nb">object</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nname</span><span class="p">,</span> <span class="n">nuid</span><span class="p">,</span> <span class="n">npassword</span><span class="p">)</span>
+            <span class="nb">object</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nname</span><span class="p">,</span> <span class="n">nuid</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
         <span class="k">except</span><span class="p">:</span>  <span class="c1"># error raised if object not created</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unknown error uid </span><span class="si">{uid}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -692,9 +692,7 @@ json_ready assignment will put the users from the database in a new format</p>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Found
- {&#39;id&#39;: 7, &#39;name&#39;: &#39;joe&#39;, &#39;uid&#39;: &#39;utest&#39;, &#39;dob&#39;: &#39;03-16-2023&#39;, &#39;age&#39;: 0}
-Updated
- {&#39;id&#39;: 7, &#39;name&#39;: &#39;ben&#39;, &#39;uid&#39;: &#39;wow&#39;, &#39;dob&#39;: &#39;03-16-2023&#39;, &#39;age&#39;: 0}
+ {&#39;id&#39;: 8, &#39;name&#39;: &#39;aj&#39;, &#39;uid&#39;: &#39;kkcbal&#39;, &#39;dob&#39;: &#39;05-18-2006&#39;, &#39;age&#39;: 16}
 </pre>
 </div>
 </div>
