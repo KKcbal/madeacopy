@@ -4,21 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Title | asher</title>
+<title>2.4b sqlite database with sqlite3 | asher</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="2.4b sqlite database with sqlite3" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="certified asher moment" />
-<meta property="og:description" content="certified asher moment" />
+<meta name="description" content="editing an sqlite database through sqlite3 terminal commands through python" />
+<meta property="og:description" content="editing an sqlite database through sqlite3 terminal commands through python" />
 <link rel="canonical" href="https://kkcbal.github.io/madeacopy/2023/03/16/datasql.html" />
 <meta property="og:url" content="https://kkcbal.github.io/madeacopy/2023/03/16/datasql.html" />
 <meta property="og:site_name" content="asher" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-03-16T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Title" />
+<meta property="twitter:title" content="2.4b sqlite database with sqlite3" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-16T00:00:00-05:00","datePublished":"2023-03-16T00:00:00-05:00","description":"certified asher moment","headline":"Title","mainEntityOfPage":{"@type":"WebPage","@id":"https://kkcbal.github.io/madeacopy/2023/03/16/datasql.html"},"url":"https://kkcbal.github.io/madeacopy/2023/03/16/datasql.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-03-16T00:00:00-05:00","datePublished":"2023-03-16T00:00:00-05:00","description":"editing an sqlite database through sqlite3 terminal commands through python","headline":"2.4b sqlite database with sqlite3","mainEntityOfPage":{"@type":"WebPage","@id":"https://kkcbal.github.io/madeacopy/2023/03/16/datasql.html"},"url":"https://kkcbal.github.io/madeacopy/2023/03/16/datasql.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/madeacopy/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kkcbal.github.io/madeacopy/feed.xml" title="asher" /><link rel="shortcut icon" type="image/x-icon" href="/madeacopy/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,13 +73,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-16T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">2.4b sqlite database with sqlite3</h1><p class="page-description">editing an sqlite database through sqlite3 terminal commands through python</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-03-16T00:00:00-05:00" itemprop="datePublished">
         Mar 16, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -154,34 +154,24 @@ window.onload = wrap_img;
     <span class="c1"># Close the database connection</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-<span class="n">schema</span><span class="p">()</span>
+<span class="c1">#schema()</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(0, &#39;id&#39;, &#39;INTEGER&#39;, 1, None, 1)
-(1, &#39;_name&#39;, &#39;VARCHAR(255)&#39;, 1, None, 0)
-(2, &#39;_uid&#39;, &#39;VARCHAR(255)&#39;, 1, None, 0)
-(3, &#39;_password&#39;, &#39;VARCHAR(255)&#39;, 1, None, 0)
-(4, &#39;_dob&#39;, &#39;DATE&#39;, 0, None, 0)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To identify each row<br />
+numerical, string, float, boolean</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -212,36 +202,26 @@ window.onload = wrap_img;
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-<span class="n">read</span><span class="p">()</span>
+<span class="c1">#read()</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(5, &#39;Indiana Jones&#39;, &#39;indi&#39;, &#39;sha256$wOO0BHqnNvnlG0gQ$670789aa800f4adad2dbb07024cb4e2bcaf59f3403101022b7e0deb61e86a630&#39;, &#39;1920-10-21&#39;)
-(8, &#39;aj&#39;, &#39;kkcbal&#39;, &#39;kali&#39;, &#39;2006-05-18&#39;)
-(3, &#39;Alexander Graham Bell&#39;, &#39;lex&#39;, &#39;sha256$CV7MKCK0MhHxHOCU$b5c93307d148db3465d99e68d751bd1d6b5c034508fe33a51552d8a1a5730e5b&#39;, &#39;2023-03-16&#39;)
-(2, &#39;Nikola Tesla&#39;, &#39;niko&#39;, &#39;sha256$Vi2rjN5RO4TgP12j$b0bf71bd2139a13a0cf47258e6424f677fad1296150e18251db3a7a2de2043ca&#39;, &#39;2023-03-16&#39;)
-(6, &#39;Marion Ravenwood&#39;, &#39;raven&#39;, &#39;sha256$JU931cdWd0ZYsfjE$7f4d921412b76d3e2cf5c8fad1e32be4233abd488e643c8699be65a1c7a4da6c&#39;, &#39;1921-10-21&#39;)
-(4, &#39;Eli Whitney&#39;, &#39;whit&#39;, &#39;sha256$pY1tpybCx3CkDsnS$e9699eb9e48a24b0101c02b85d4eeb291a8a6f786d214dc7bfce0f4976c99d0c&#39;, &#39;2023-03-16&#39;)
-(7, &#39;ben&#39;, &#39;wow&#39;, &#39;sha256$s15raHeEASOiQfhU$74be0abc32cb1da9abdfba7bf73e66c597034dcd13fe22760d36f7b4e011cc92&#39;, &#39;2023-03-16&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Connects to a data source<br />
+it executes sql code<br />
+They both have a lot of built in functions that you can execute with them.<br />
+No, results is defined as a list in the debugger.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -289,6 +269,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Both create functions seem the same to me. This function does not encrypt the password though.<br />
+They're not the same, but very similar. user init <em>included</em> the create function while insert <em>is</em> the create function.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -330,30 +318,25 @@ window.onload = wrap_img;
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-<span class="n">update</span><span class="p">()</span>
+<span class="c1">#update()</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The row with user id kkcbal the password has been successfully updated
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The hacked part will change your password to hacked the new password you inputted is less than two characters.<br />
+I think except would occur when try fails. If there's an error while trying, then except will occur<br />
+The definition and use of conn and cursor. They are necessary to interact with the sql database.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -398,6 +381,13 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This delete function seems dangerous. It allows you to delete anyone without verifying if it's your account.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -433,27 +423,17 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(0, &#39;id&#39;, &#39;INTEGER&#39;, 1, None, 1)
-(1, &#39;_name&#39;, &#39;VARCHAR(255)&#39;, 1, None, 0)
-(2, &#39;_uid&#39;, &#39;VARCHAR(255)&#39;, 1, None, 0)
-(3, &#39;_password&#39;, &#39;VARCHAR(255)&#39;, 1, None, 0)
-(4, &#39;_dob&#39;, &#39;DATE&#39;, 0, None, 0)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So you can easily execute multiple actions without pressing the run button.<br />
+Maybe you could put every function in a list, and execute functions by putting the user input in the list index</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
