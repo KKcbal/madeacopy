@@ -6,7 +6,7 @@ description:
 
 <html>
 <head>
-    <link rel="stylesheet" href="./number/style.css" />
+    <link rel="stylesheet" href="./number/style.css">
   <title>Guess the Number</title>
 </head>
 <body>
